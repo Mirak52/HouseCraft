@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Draci_doupe.Tridy;
+using Draci_doupe.Třídy;
 
 namespace Draci_doupe
 {
@@ -25,16 +27,16 @@ namespace Draci_doupe
             InitializeComponent();
 
         }
-        private static Třídy.OsobyDatabase _database;
+        private static InventoryDatabase _database;
 
-        public static Třídy.OsobyDatabase Database
+        public static InventoryDatabase Database
         {
             get
             {
                 if (_database == null)
                 {
-                    var fileHelper = new Třídy.Filehelper();
-                    _database = new Třídy.OsobyDatabase(fileHelper.GetLocalFilePath("TodoSQLite.db3"));
+                    var fileHelper = new Filehelper();
+                    _database = new InventoryDatabase(fileHelper.GetLocalFilePath("TodoSQLite.db3"));
                 }
                 return _database;
             }
@@ -43,10 +45,10 @@ namespace Draci_doupe
         private void Start_Click(object sender, RoutedEventArgs e)
         {
             InitializeComponent();
-            /*Třídy.Osoby item = new Třídy.Osoby();
-            item.Damage = 5;
+            Inventory item = new Inventory();
+            item.Stone = 5;
             Database.SaveItemAsync(item);
-            */
+            
 
             Info customization = new Info();
             customization.Show();

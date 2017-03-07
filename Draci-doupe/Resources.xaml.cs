@@ -91,20 +91,26 @@ namespace Draci_doupe
                 //Place.Content = click;
                 if (control == click)
                 {
-                    Inventory item = new Inventory();
-                    item.Stone = test;
-                    item.Wood = 50;
-                    
-                    Database1.SaveItemAsync(item);
+                    var itemsFromDb = Database1.QueryGet().Result;
+                    foreach (var Stone in itemsFromDb)
+                    {
+                        Stone.Stone = Stone.Stone + test;
+                        Inventory resource = new Inventory();
+                        resource.ID = Stone.ID;
+                        resource.Stone = Stone.Stone;
+                        Database1.SaveItemAsync(resource);
+                        Bar.Value = 0;
+                        control = 0;
+                    }
                     Bar.Value = 0;
                     control = 0;
+
                 }
                 else
                 {
                     Bar.Value = Bar.Value + max / click;
                 }
             }
-         
         }
         public static OsobyDatabase _database;
         public static OsobyDatabase Database
@@ -124,7 +130,7 @@ namespace Draci_doupe
         {
             get
             {
-                if (_database == null)
+                if (_database1 == null)
                 {
                     var fileHelper = new Filehelper();
                     _database1 = new InventoryDatabase(fileHelper.GetLocalFilePath("TodoSQLite.db3"));
