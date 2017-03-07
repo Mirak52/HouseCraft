@@ -1,0 +1,19 @@
+﻿<Window x:Class="Draci_doupe.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Draci_doupe"
+        mc:Ignorable="d"
+        WindowState="Maximized"
+        FontFamily ="./Fonts/#Minecrafter"
+        Title="MainWindow" Height="768" Width="1366" >
+    <Grid>
+
+        <Label FontFamily="pack://application:,,,/Fonts/#Minecrafter Alt"  HorizontalAlignment="Center" FontSize="60"  Margin="0,25,0,402" Content="House Quest" Width="500"/>
+        <Button x:Name="Start" FontFamily="pack://application:,,,/Fonts/#Minecrafter Alt" FontSize="50"  Content="Hrat" Width="200" Height="60" HorizontalAlignment="Center" Margin="0,600,500,0" VerticalAlignment="Top" Click="Start_Click" />
+        <Button x:Name="End" FontFamily="pack://application:,,,/Fonts/#Minecrafter Alt" FontSize="50"  Content="Konec" Width="200" Height="60" HorizontalAlignment="Center" Margin="500,600,0,0" VerticalAlignment="Top" Click="End_Click" />
+        <Button x:Name="Info" FontFamily="pack://application:,,,/Fonts/#Minecrafter Alt" FontSize="50"  Content="Info" Width="200" Height="60"  HorizontalAlignment="Center" Margin="0,600,0,0" VerticalAlignment="Top" Click="Info_Click" />
+
+    </Grid>
+</Window>

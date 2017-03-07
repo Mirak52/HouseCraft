@@ -1,0 +1,17 @@
+﻿<Window x:Class="Draci_doupe.Info"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Draci_doupe"
+        mc:Ignorable="d"
+          WindowState="Maximized"
+        FontFamily ="./Fonts/#Minecrafter"
+        Title="Info" MinHeight="768" MinWidth="1366" >
+    <Grid>
+        <Button x:Name="play" FontSize="35" FontFamily="pack://application:,,,/Fonts/#Minecrafter Alt" Content="Pokracovat" HorizontalAlignment="center" Margin="0,333,0,0" VerticalAlignment="Top" Width="250" Height="80" Click="play_Click"/>
+        <Label x:Name="label" FontFamily="pack://application:,,,/Fonts/#Minecrafter Alt" Content="Pribeh" FontSize="50" HorizontalAlignment="center" Margin="0,50,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1" FontSize="20" Content="Přistěhoval ses do malého kostičkového městečka a starosta ti přidělil pozemek.&#xD;&#xA;Bohužel tvá karavana se stavebním materialem byla přepadena zbojníky a proto&#xD;&#xA;si budeš muset vše obstarat sám. Jakožto bývalý dřevorubec by to nebyl problém,&#xD;&#xA;ale o peníze jsi přišel a zima se blíží&#xD;&#xA;&#xD;&#xA;Zvládneš nasbírat dostatek surovin a postavit přístřeší dřív než přijde zima?" HorizontalAlignment="center" Margin="0,136,0,0" VerticalAlignment="Top" Height="150" Width="732"/>
+
+    </Grid>
+</Window>
