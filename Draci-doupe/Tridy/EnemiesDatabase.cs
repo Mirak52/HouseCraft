@@ -18,11 +18,11 @@ namespace Draci_doupe.Tridy
         }
         public Task<List<Enemies>> QueryDeleteAll()
         {
-            return database.QueryAsync<Enemies>("DELETE FROM [Inventory]");
+            return database.QueryAsync<Enemies>("DELETE FROM [Enemies]");
         }
         public Task<List<Enemies>> QueryGet()
         {
-            return database.QueryAsync<Enemies>("SELECT * FROM [Inventory] ORDER BY ID DESC LIMIT 1;");
+            return database.QueryAsync<Enemies>("SELECT * FROM [Enemies] ORDER BY ID DESC LIMIT 1;");
         }
         public Task<int> SaveItemAsync(Enemies item)
         {
@@ -35,9 +35,9 @@ namespace Draci_doupe.Tridy
                 return database.InsertAsync(item);
             }
         }
-        public Task<List<Enemies>> GetItemsFromDatabase()
+        public Task<List<Enemies>> GetItemsFromDatabase(int id)
         {
-            return database.QueryAsync<Enemies>("SELECT * FROM [Inventory] WHERE [name] = ");
+            return database.QueryAsync<Enemies>("SELECT * FROM [Enemies] WHERE [ID] = " + id );
         }
     }
 }

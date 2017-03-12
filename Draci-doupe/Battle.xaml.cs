@@ -10,10 +10,11 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Draci_doupe.Tridy;
 using Draci_doupe.Třídy;
-
+using SQLite;
 namespace Draci_doupe
 {
     /// <summary>
@@ -21,11 +22,33 @@ namespace Draci_doupe
     /// </summary>
     public partial class Battle : Window
     {
+        Random random = new Random();
         public Battle(int place)
         {
             InitializeComponent();
             background(place);
-
+            switch (place)
+            {
+                case 1:
+                    int rnd = random.Next(2,5); //přidat tlačítko na reload
+                    place = rnd;
+                    break;
+                case 2:
+                    rnd = random.Next(8,9);
+                    place = rnd;
+                    break;
+            }
+            var itemsFromDb = Database.GetItemsFromDatabase(place).Result;
+            foreach (var mob in itemsFromDb)
+            {
+                Enemy.Content = mob.Name;
+                Stats.Content = "Životy: " + mob.Health + " Poškození: " + mob.Damage + " Obrana: " + mob.Deffence +
+                                " Odměna: " + mob.Price;
+                Health.Content = mob.Health;
+                Damage.Content = mob.Damage;
+                Deff.Content = mob.Deffence;
+                Price.Content = mob.Price;
+            }
 
         }
 
@@ -81,10 +104,10 @@ namespace Draci_doupe
             switch (number)
             {
                 case 0:
-                    picture = "pirateBay";
+                    picture = "";
                     break;
                 case 1:
-                    picture = "mine";
+                    picture = "pirateBay";
                     break;
             }
             ImageBrush myBrush = new ImageBrush();
