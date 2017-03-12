@@ -112,6 +112,8 @@
     <Compile Include="Resources.xaml.cs">
       <DependentUpon>Resources.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Tridy\Enemies.cs" />
+    <Compile Include="Tridy\EnemiesDatabase.cs" />
     <Compile Include="Tridy\Inventory.cs" />
     <Compile Include="Tridy\InventoryDatabase.cs" />
     <Compile Include="Tutorial.xaml.cs">

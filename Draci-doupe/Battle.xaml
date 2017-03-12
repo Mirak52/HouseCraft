@@ -9,8 +9,16 @@
         FontFamily ="./Fonts/#Minecrafter"
         Title="Battle" Height="768" Width="1366" >
     <Grid Opacity="0.82">
-        <Grid.Background >
-            <ImageBrush ImageSource="" />
-        </Grid.Background>
+       
+        <Button FontSize="20" x:Name="Attack" Content="Utok" HorizontalAlignment="Left" Margin="40,150,0,0" Height="50" VerticalAlignment="Top" Width="100" FontFamily="/Draci-doupe;component/Fonts/#Minecrafter Alt"/>
+        <Button FontSize="20" x:Name="Deffence" Content="Obrana" HorizontalAlignment="Left" Margin="40,220,0,0" Height="50" VerticalAlignment="Top" Width="100" FontFamily="/Draci-doupe;component/Fonts/#Minecrafter Alt"/>
+        <Button FontSize="20" x:Name="Heal" Content="Leceni" HorizontalAlignment="Left" Margin="40,290,0,0" Height="50" VerticalAlignment="Top" Width="100" FontFamily="/Draci-doupe;component/Fonts/#Minecrafter Alt"/>
+        <Button FontSize="20" x:Name="Special" Content="Special" HorizontalAlignment="Left" Margin="40,360,0,0" Height="50" VerticalAlignment="Top" Width="100" FontFamily="/Draci-doupe;component/Fonts/#Minecrafter Alt"/>
+        <ProgressBar HorizontalAlignment="Left" Value="10" Maximum="100" Height="20" VerticalAlignment="Top" Width="200" Margin="350,80,0,0" Background="#FFFFA3A3" Foreground="Red"/>
+        <ProgressBar HorizontalAlignment="Right" Value="5" Maximum="100" Height="20"  VerticalAlignment="Top" Width="200" Margin="0,80,350,0" Background="#FFFFA3A3" Foreground="Red"/>
+        <Label x:Name="Enemy" Content="" HorizontalAlignment="Left" Margin="894,37,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.184,0.465"/>
+
+
+
     </Grid>
 </Window>

@@ -58,7 +58,8 @@ namespace Draci_doupe
         private void End_Click(object sender, RoutedEventArgs e)
         {
             InitializeComponent();
-            pointChoose page = new pointChoose();
+            int place = 1;
+            Battle page = new Battle(place);
             page.Show();
             this.Close();
         }
