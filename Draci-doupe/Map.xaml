@@ -12,10 +12,10 @@
         <Grid.Background >
             <ImageBrush ImageSource="picture\map.jpg" />
         </Grid.Background>
-        <Button x:Name="Citi" Content="Mesto" HorizontalAlignment="Left" Margin="1054,317,0,0" VerticalAlignment="Top" Width="70" FontFamily="/Draci-doupe;component/Fonts/#Minecrafter Alt" Background="#FFA2A2A2" FontSize="18" BorderBrush="Blue" Foreground="Black" Height="24"/>
-        <Button x:Name="Forest" Content="Les" HorizontalAlignment="Left" Margin="874,338,0,0" VerticalAlignment="Top" Width="53" FontFamily="/Draci-doupe;component/Fonts/#Minecrafter Alt" Background="#FFA2A2A2" FontSize="18" BorderBrush="green" Foreground="Black" Height="20"/>
+        <Button x:Name="City" Content="Mesto" HorizontalAlignment="Left" Margin="1054,317,0,0" VerticalAlignment="Top" Width="70" FontFamily="/Draci-doupe;component/Fonts/#Minecrafter Alt" Background="#FFA2A2A2" FontSize="18" BorderBrush="Blue" Foreground="Black" Height="24" Click="City_Click" />
+        <Button x:Name="Forest" Content="Les" HorizontalAlignment="Left" Margin="874,338,0,0" VerticalAlignment="Top" Width="53" FontFamily="/Draci-doupe;component/Fonts/#Minecrafter Alt" Background="#FFA2A2A2" FontSize="18" BorderBrush="green" Foreground="Black" Height="20" Click="Forest_Click"/>
         <Button x:Name="Pirates" Content="Zatoka piratu" HorizontalAlignment="Left" Margin="744,217,0,0" VerticalAlignment="Top" Width="94" FontFamily="/Draci-doupe;component/Fonts/#Minecrafter Alt" Background="#FFA2A2A2" FontSize="10" BorderBrush="red" Foreground="Black" Height="19"/>
-        <Button x:Name="Quarry" Content="Lom" HorizontalAlignment="Left" Margin="631,358,0,0" VerticalAlignment="Top" Width="38" FontFamily="/Draci-doupe;component/Fonts/#Minecrafter Alt" Background="#FFA2A2A2" FontSize="10" BorderBrush="Green" Foreground="Black" Height="19"/>
+        <Button x:Name="Quarry" Content="Lom" HorizontalAlignment="Left" Margin="631,358,0,0" VerticalAlignment="Top" Width="38" FontFamily="/Draci-doupe;component/Fonts/#Minecrafter Alt" Background="#FFA2A2A2" FontSize="10" BorderBrush="Green" Foreground="Black" Height="19" Click="Quarry_Click"/>
         <Button x:Name="Sand" Content="Poust" HorizontalAlignment="Left" Margin="726,144,0,0" VerticalAlignment="Top" Width="45" FontFamily="/Draci-doupe;component/Fonts/#Minecrafter Alt" Background="#FFA2A2A2" FontSize="10" BorderBrush="Green" Foreground="Black" Height="19"/>
         <Button x:Name="Magma" Content="Lavova zeme" HorizontalAlignment="Left" Margin="808,634,0,0" VerticalAlignment="Top" Width="80" FontFamily="/Draci-doupe;component/Fonts/#Minecrafter Alt" Background="#FFA2A2A2" FontSize="10" BorderBrush="Green" Foreground="Black" Height="27" RenderTransformOrigin="0.349,1.4"/>
 

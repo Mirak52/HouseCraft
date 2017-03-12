@@ -22,7 +22,11 @@
                 </LinearGradientBrush>
             </ProgressBar.Foreground>
         </ProgressBar>
-        <Label x:Name="Current" Content="Aktualně:" HorizontalAlignment="Left" Margin="290,372,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="Current" Content="" HorizontalAlignment="center" FontSize="30" Margin="0,280,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="ID" Content="" Visibility="Hidden" HorizontalAlignment="Left" Margin="1002,150,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="Map" Content="Mapa" HorizontalAlignment="Center" Margin="0,670,0,0" VerticalAlignment="Top" Width="201" Height="45" Click="Map_Click"/>
+        <Label x:Name="Wood" Content="" Visibility="Hidden" HorizontalAlignment="Left" Margin="1002,150,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="Stone" Content="" Visibility="Hidden" HorizontalAlignment="Left" Margin="1002,150,0,0" VerticalAlignment="Top"/>
 
 
     </Grid>

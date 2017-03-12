@@ -58,8 +58,8 @@ namespace Draci_doupe
         private void End_Click(object sender, RoutedEventArgs e)
         {
             InitializeComponent();
-            pointChoose test = new pointChoose();
-            test.Show();
+            pointChoose page = new pointChoose();
+            page.Show();
             this.Close();
         }
         private void Info_Click(object sender, RoutedEventArgs e)

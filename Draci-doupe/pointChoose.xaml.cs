@@ -116,8 +116,8 @@ namespace Draci_doupe
             Skills.Mining = (int)convertor(MiningL.Content);
             Skills.Chopping = (int)convertor(ChoppingL.Content);
             Database.SaveItemAsync(Skills);
-            Map customization = new Map();
-            customization.Show();
+            Map Page = new Map();
+            Page.Show();
             this.Close();
         }
 

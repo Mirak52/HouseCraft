@@ -28,14 +28,11 @@ namespace Draci_doupe
         {
             InitializeComponent();
             background(place);
+            Show(place);
             var itemsFromDb = Database.QueryGet().Result;
             foreach (var osoby in itemsFromDb)
             {
-                /*var itemsFromDb1 = Database1.QueryGet().Result;
-                foreach (var test in itemsFromDb1)
-                {
-                    Current.Content = "Aktualně: " + test.Stone;
-                }*/
+                
                 if (place == 0)
                 {
                     Place.Content = "LES";
@@ -48,6 +45,23 @@ namespace Draci_doupe
                     Skill.Content = osoby.Mining;
                 }
             }  
+        }
+        private void Show(int place)
+        {
+            var itemsFromDb1 = Database1.QueryGet().Result;
+            foreach (var data in itemsFromDb1)
+            {
+                if (place == 0)
+                {
+                    Current.Content = data.Wood;
+                    ID.Content = data.ID;
+                }
+                else if (place == 1)
+                {
+                    Current.Content = data.Stone;
+                    ID.Content = data.ID;
+                }
+            }
         }
 
         private void background(int number)
@@ -67,50 +81,41 @@ namespace Draci_doupe
                 new BitmapImage(new Uri("pack://application:,,,/picture/"+ picture +".jpg", UriKind.Absolute));
             this.Background = myBrush;
         }
+      
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            double x = 0.5;
-            int max = 100;
-            string place = Convert.ToString(Place.Content);
-            int skill = Convert.ToInt32(Skill.Content);
-            int click = max / skill;
-            
-            if (place == "LES")
-            {
-                int rnd = random.Next(skill, skill + 5);
-                double resources = x * rnd;
-                int test = Convert.ToInt32(resources);
-                
-            }
-            else if (place == "DUL")
-            {
-                control++;
-                int rnd = random.Next(skill, skill + 5);
-                double resources = x * rnd;
-                int test = Convert.ToInt32(resources);
-                //Place.Content = click;
-                if (control == click)
-                {
-                    var itemsFromDb = Database1.QueryGet().Result;
-                    foreach (var Stone in itemsFromDb)
-                    {
-                        Stone.Stone = Stone.Stone + test;
-                        Inventory resource = new Inventory();
-                        resource.ID = Stone.ID;
-                        resource.Stone = Stone.Stone;
-                        Database1.SaveItemAsync(resource);
-                        Bar.Value = 0;
-                        control = 0;
-                    }
-                    Bar.Value = 0;
-                    control = 0;
+            Work();
 
-                }
-                else
+        }
+
+        private void Work()
+        {
+            int plac = 0;
+            control++;
+            string place = Convert.ToString(Place.Content);
+            int skill = Convert.ToInt32(Skill.Content) /2;
+            if (control == 5)
+            {
+                Inventory item = new Inventory();
+                int current = Convert.ToInt32(Current.Content);
+                item.ID = Convert.ToInt32(ID.Content);
+                if (place == "LES")
                 {
-                    Bar.Value = Bar.Value + max / click;
+                    Show(plac);
+                    item.Wood = skill + current;
                 }
+                else if (place == "DUL")
+                {
+                    plac = 1;
+                    Show(plac);
+                    item.Stone = skill + current;
+                }
+                Database1.SaveItemAsync(item);
+                control = 0;
             }
+            Bar.Value = 20 * control;
+            
+            
         }
         public static OsobyDatabase _database;
         public static OsobyDatabase Database
@@ -137,6 +142,13 @@ namespace Draci_doupe
                 }
                 return _database1;
             }
+        }
+
+        private void Map_Click(object sender, RoutedEventArgs e)
+        {
+            Map page = new Map();
+            page.Show();
+            this.Close();
         }
     }
 }

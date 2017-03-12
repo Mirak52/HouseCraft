@@ -1,0 +1,21 @@
+﻿<Window x:Class="Draci_doupe.City"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Draci_doupe"
+        mc:Ignorable="d"
+         WindowState="Maximized"
+        FontFamily ="./Fonts/#Minecrafter"
+        Title="City" Height="768" Width="1366"  >
+    <Grid Width="1366" Height="768">
+        <Grid.Background >
+            <ImageBrush ImageSource="picture\city.jpg" />
+        </Grid.Background>
+        <Button x:Name="Hospoda" Height="50"  Content="Hospoda" HorizontalAlignment="Left" Margin="270,292,0,0" VerticalAlignment="Top" Width="100" FontFamily="/Draci-doupe;component/Fonts/#Minecrafter Alt" FontSize="15"/>
+        <Button x:Name="Obchodnik" Height="50" Content="Obchodnik" HorizontalAlignment="Left" Margin="790,330,0,0" VerticalAlignment="Top" Width="100" FontFamily="/Draci-doupe;component/Fonts/#Minecrafter Alt" FontSize="15"/>
+        <Button x:Name="Dum" Content="Pozemek" Height="50" FontFamily="/Draci-doupe;component/Fonts/#Minecrafter Alt" HorizontalAlignment="Left" Margin="1116,605,0,0" VerticalAlignment="Top" Width="100
+                " FontSize="15"/>
+
+    </Grid>
+</Window>

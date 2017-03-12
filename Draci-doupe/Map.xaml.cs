@@ -23,5 +23,26 @@ namespace Draci_doupe
         {
             InitializeComponent();
         }
+        private void Forest_Click(object sender, RoutedEventArgs e)
+        {
+            int place = 0;
+            Resources customization = new Resources(place);
+            customization.Show();
+            this.Close();
+        }
+        private void Quarry_Click(object sender, RoutedEventArgs e)
+        {
+            int place = 1;
+            Resources customization = new Resources(place);
+            customization.Show();
+            this.Close();
+        }
+
+        private void City_Click(object sender, RoutedEventArgs e)
+        {
+            City customization = new City();
+            customization.Show();
+            this.Close();
+        }
     }
 }
