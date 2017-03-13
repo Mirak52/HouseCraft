@@ -63,7 +63,6 @@ namespace Draci_doupe
                 }
             }
         }
-
         private void background(int number)
         {
             string picture = "map";
@@ -80,12 +79,10 @@ namespace Draci_doupe
             myBrush.ImageSource =
                 new BitmapImage(new Uri("pack://application:,,,/picture/"+ picture +".jpg", UriKind.Absolute));
             this.Background = myBrush;
-        }
-      
+        }      
         private void button_Click(object sender, RoutedEventArgs e)
         {
             Work();
-
         }
 
         private void Work()
@@ -114,8 +111,6 @@ namespace Draci_doupe
                 control = 0;
             }
             Bar.Value = 20 * control;
-            
-            
         }
         public static OsobyDatabase _database;
         public static OsobyDatabase Database

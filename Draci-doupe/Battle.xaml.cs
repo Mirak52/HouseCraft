@@ -54,11 +54,8 @@ namespace Draci_doupe
 
         private void Action(string action)
         {
-            
+           
         }
-
-
-
         public static EnemiesDatabase _database;
         public static OsobyDatabase _database1;
         public static InventoryDatabase _database2;
