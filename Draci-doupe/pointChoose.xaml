@@ -25,7 +25,6 @@
         <Label x:Name="MiningL" Content="0" FontSize="20" HorizontalAlignment="Center" Margin="200,320,0,0" VerticalAlignment="Top" />
         <Label x:Name="ChoppingL"  Content="0" FontSize="20" HorizontalAlignment="Center" Margin="200,360,0,0" VerticalAlignment="Top" />
         <Button x:Name="Play" FontFamily="pack://application:,,,/Fonts/#Minecrafter Alt" FontSize="30" Content="Hrat" HorizontalAlignment="Center" Margin="0,450,0,0" VerticalAlignment="Top" Width="200" Height="50" Click="Play_Click"/>
-        <Label x:Name="label" Content="Label" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Label x:Name="Info" Content="Label" HorizontalAlignment="Center" Margin="0,400,0,0" VerticalAlignment="Top"/>
 
     </Grid>

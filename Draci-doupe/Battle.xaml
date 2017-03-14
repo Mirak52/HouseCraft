@@ -8,22 +8,31 @@
          WindowState="Maximized"
         FontFamily ="./Fonts/#Minecrafter"
         Title="Battle" Height="768" Width="1366" >
-    <Grid Opacity="0.82">
-
-        <Button FontSize="20" x:Name="Attack" Content="Utok" HorizontalAlignment="Left" Margin="40,150,0,0" Height="50" VerticalAlignment="Top" Width="100" FontFamily="/Draci-doupe;component/Fonts/#Minecrafter Alt"/>
-        <Button FontSize="20" x:Name="Deffence" Content="Obrana" HorizontalAlignment="Left" Margin="40,220,0,0" Height="50" VerticalAlignment="Top" Width="100" FontFamily="/Draci-doupe;component/Fonts/#Minecrafter Alt"/>
-        <Button FontSize="20" x:Name="Heal" Content="Leceni" HorizontalAlignment="Left" Margin="40,290,0,0" Height="50" VerticalAlignment="Top" Width="100" FontFamily="/Draci-doupe;component/Fonts/#Minecrafter Alt"/>
-        <Button FontSize="20" x:Name="Special" Content="Special" HorizontalAlignment="Left" Margin="40,360,0,0" Height="50" VerticalAlignment="Top" Width="100" FontFamily="/Draci-doupe;component/Fonts/#Minecrafter Alt"/>
-        <ProgressBar HorizontalAlignment="Left" Value="10" Maximum="100" Height="20" VerticalAlignment="Top" Width="200" Margin="350,80,0,0" Background="#FFFFA3A3" Foreground="Red"/>
-        <ProgressBar HorizontalAlignment="Right" Value="5" Maximum="100" Height="20"  VerticalAlignment="Top" Width="200" Margin="0,80,350,0" Background="#FFFFA3A3" Foreground="Red"/>
-        <Label x:Name="Enemy" Content="" HorizontalAlignment="Left" Margin="894,37,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.184,0.465"/>
-        <Label x:Name="Stats" Content="Label" HorizontalAlignment="Left" Margin="774,105,0,0" VerticalAlignment="Top" Height="48" Width="280"/>
+    <Grid OpacityMask="Red">
+        <StackPanel Margin="59,147,1184,269">
+            <Button FontSize="20" x:Name="Attack" Content="Utok" HorizontalAlignment="Left"  Height="50" VerticalAlignment="Top" Width="100" FontFamily="/Draci-doupe;component/Fonts/#Minecrafter Alt" Click="Attack_Click"/>
+            <Label Height="15"></Label>
+            <Button FontSize="20" x:Name="Deffence" Content="Obrana" HorizontalAlignment="Left"  Height="50" VerticalAlignment="Top" Width="100" FontFamily="/Draci-doupe;component/Fonts/#Minecrafter Alt" Click="Deffence_Click"/>
+            <Label Height="15"></Label>
+            <Button FontSize="20" x:Name="Heal" Content="Elixir" HorizontalAlignment="Left"  Height="50" VerticalAlignment="Top" Width="100" FontFamily="/Draci-doupe;component/Fonts/#Minecrafter Alt" Click="Heal_Click"/>
+            <Label Height="15"></Label>
+            <Button FontSize="20" x:Name="Special" Visibility="Hidden" Content="Special" HorizontalAlignment="Left"  Height="50" VerticalAlignment="Top" Width="100" FontFamily="/Draci-doupe;component/Fonts/#Minecrafter Alt" Click="Special_Click"/>
+        </StackPanel>
+       
+            <ProgressBar x:Name="playerL" HorizontalAlignment="Left" Value="10" Maximum="100" Height="20" VerticalAlignment="Top" Width="200" Margin="350,80,0,0" Background="#FFFFA3A3" Foreground="Red"/>
+            <ProgressBar  x:Name="specialP" Margin="375,110,0,0" Maximum="5"  HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="150" Foreground="#FFF3FF00" BorderBrush="White" Background="#FFFFFCC0"/>
+        
+          <ProgressBar x:Name="enemyL"  HorizontalAlignment="Right" Value="5"  Height="20"  VerticalAlignment="Top" Width="200" Margin="0,80,350,0" Background="#FFFFA3A3" Foreground="Red"/>
+        <Label x:Name="Enemy" Content="" HorizontalAlignment="Center" Margin="894,37,0,0" FontSize="20" VerticalAlignment="Top" RenderTransformOrigin="-0.184,0.465" Foreground="White"/>
+        <Label x:Name="Stats" FontSize="20" Content="Label" HorizontalAlignment="Right" Margin="0,105,300,0" VerticalAlignment="Top" Foreground="White"/>
         <Label x:Name="Health" Content="" Visibility="Hidden" HorizontalAlignment="Left" Margin="1091,220,0,0" VerticalAlignment="Top"/>
         <Label x:Name="Price" Content="" Visibility="Hidden" HorizontalAlignment="Left" Margin="1091,220,0,0" VerticalAlignment="Top"/>
         <Label x:Name="Damage" Content="" Visibility="Hidden" HorizontalAlignment="Left" Margin="1091,220,0,0" VerticalAlignment="Top"/>
         <Label x:Name="Deff" Content="" Visibility="Hidden" HorizontalAlignment="Left" Margin="1091,220,0,0" VerticalAlignment="Top"/>
-    
-
+        <Label x:Name="HealthP" Content="" Visibility="Hidden"></Label>
+        <Label x:Name="DamageP" Content="" Visibility="Hidden"></Label>
+        <Label x:Name="DeffP" Content="" Visibility="Hidden"></Label>
+       
 
     </Grid>
 </Window>

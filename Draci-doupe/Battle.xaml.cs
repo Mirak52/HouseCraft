@@ -22,6 +22,8 @@ namespace Draci_doupe
     /// </summary>
     public partial class Battle : Window
     {
+        int special = 0;
+        int defBonus;
         Random random = new Random();
         public Battle(int place)
         {
@@ -38,6 +40,14 @@ namespace Draci_doupe
                     place = rnd;
                     break;
             }
+            Osoby enemyS = new Osoby();
+            enemyS.Damage = 6;
+            enemyS.Health = 10;
+            enemyS.Deffence = 5;
+            Database1.SaveItemAsync(enemyS);
+           
+            place = 1;
+           
             var itemsFromDb = Database.GetItemsFromDatabase(place).Result;
             foreach (var mob in itemsFromDb)
             {
@@ -48,13 +58,101 @@ namespace Draci_doupe
                 Damage.Content = mob.Damage;
                 Deff.Content = mob.Deffence;
                 Price.Content = mob.Price;
+                enemyL.Maximum = mob.Health;
+                enemyL.Value = mob.Health;
             }
-
+            var itemsFromDbPlayer = Database1.QueryGet().Result;
+            foreach (var player in itemsFromDbPlayer)
+            {
+                playerL.Value= player.Health;
+                playerL.Maximum = player.Health;
+                HealthP.Content = player.Health;
+                DamageP.Content = player.Damage;
+                DeffP.Content = player.Deffence;      
+            }
         }
-
         private void Action(string action)
         {
-           
+            int healtE = Convert.ToInt32(Health.Content);
+            int damageE = Convert.ToInt32(Damage.Content);
+            int deffE = Convert.ToInt32(Deff.Content);
+            int healtP = Convert.ToInt32(HealthP.Content);
+            int damageP = Convert.ToInt32(DamageP.Content);
+            int deffP = Convert.ToInt32(DeffP.Content);
+            
+            if (action == "Attack_Click")
+           {
+                damageP = damageP - deffE;
+                if (damageP <= 0) { damageP = 0; }
+                healtE = healtE - damageP;
+                life(healtP, healtE);//testuje životy
+                defBonus--;
+                special++;
+            }
+           else if (action == "Deffence_Click")
+           {
+                deffP = deffP * 2;
+                defBonus = 2;
+                special++;
+            }
+           else if (action == "Heal_Click")
+           {
+                healtP = healtP + 50 + deffP;
+                special++;
+            }
+           else if (action == "Special_Click")
+           {
+                damageP = damageP * 2 - deffE;
+                if (damageP <= 0) { damageP = 0; }
+                healtE = healtE - damageP;
+                life(healtP, healtE);//testuje životy
+                defBonus--;
+                special = 0;
+                defBonus--;
+            }
+            damageE = damageE - deffP;
+            if (damageE <= 0) { damageE = 0; }
+            healtP = healtP - damageE;
+            life(healtP, healtE);//testuje životy
+
+            Health.Content = healtE;
+            enemyL.Value = healtE;
+            playerL.Value = healtP;
+            specialP.Value = special;
+            if(special == 5){ Special.Visibility = Visibility.Visible;} else { Special.Visibility = Visibility.Hidden; }
+            if(defBonus== 0){
+                deffP = deffP / 2;
+            }
+        }
+        private void life(int lifeP,int lifeE)
+        {
+            if(lifeP <= 0)
+            {
+                Stats.Content = lifeE;
+            }
+            else if (lifeE <= 0)
+            {
+                Stats.Content = lifeE;
+            }
+        }
+        private void Attack_Click(object sender, RoutedEventArgs e)
+        {
+            Action("Attack_Click");
+        }
+
+        private void Deffence_Click(object sender, RoutedEventArgs e)
+        {
+            Action("Deffence_Click");
+        }
+
+        private void Heal_Click(object sender, RoutedEventArgs e)
+        {
+            Action("Heal_Click");
+        }
+
+        private void Special_Click(object sender, RoutedEventArgs e)
+        {
+            Action("Special_Click");
         }
         public static EnemiesDatabase _database;
         public static OsobyDatabase _database1;
