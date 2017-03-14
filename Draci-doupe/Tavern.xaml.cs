@@ -15,27 +15,13 @@ using System.Windows.Shapes;
 namespace Draci_doupe
 {
     /// <summary>
-    /// Interaction logic for City.xaml
+    /// Interaction logic for Tavern.xaml
     /// </summary>
-    public partial class City : Window
+    public partial class Tavern : Window
     {
-        public City()
+        public Tavern()
         {
             InitializeComponent();
-        }
-
-        private void map_Click(object sender, RoutedEventArgs e)
-        {
-            Map move = new Map();
-            move.Show();
-            this.Close();
-        }
-
-        private void Hospoda_Click(object sender, RoutedEventArgs e)
-        {
-            Tavern move = new Tavern();
-            move.Show();
-            this.Close();
         }
     }
 }

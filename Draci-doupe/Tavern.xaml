@@ -1,0 +1,25 @@
+﻿<Window x:Class="Draci_doupe.Tavern"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Draci_doupe"
+        FontFamily ="./Fonts/#Minecrafter"
+        mc:Ignorable="d"
+        WindowState="Maximized"
+        Title="Tavern" Height="1080" Width="1920">
+    <Grid Height="1080" Width="1920">
+        <StackPanel Margin="456,204,1296,600">
+            <Button x:Name="gossip" Width="100" Height="40" FontSize="20" Content="Drby" FontFamily="/Draci-doupe;component/Fonts/#Minecrafter Alt"/>
+            <Label Height="20"></Label>
+            <Button x:Name="quest" Width="100" Height="40" FontSize="20"  Content="ukoly" FontFamily="/Draci-doupe;component/Fonts/#Minecrafter Alt"/>
+            <Label Height="20"></Label>
+            <Button x:Name="Beer" Width="100" Height="40" FontSize="20"  Content="pivo" FontFamily="/Draci-doupe;component/Fonts/#Minecrafter Alt"/>
+            <Label Height="20"></Label>
+            <Button x:Name="City" Width="100" Height="40" FontSize="20"  Content="odchod" FontFamily="/Draci-doupe;component/Fonts/#Minecrafter Alt"/>
+
+        </StackPanel>
+        <Label x:Name="Text" Content="Label" FontSize="15" HorizontalAlignment="Left" Margin="982,204,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="Accept" Content="Prijmout" Width="100" Height="40" FontSize="20" HorizontalAlignment="Left" Margin="1326,480,0,0" VerticalAlignment="Top" FontFamily="/Draci-doupe;component/Fonts/#Minecrafter Alt"/>
+    </Grid>
+</Window>

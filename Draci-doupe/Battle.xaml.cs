@@ -24,10 +24,12 @@ namespace Draci_doupe
     {
         int special = 0;
         int defBonus;
+        int place1;
         Random random = new Random();
         public Battle(int place)
         {
             InitializeComponent();
+            place1 = place;
             background(place);
             switch (place)
             {
@@ -113,13 +115,14 @@ namespace Draci_doupe
             damageE = damageE - deffP;
             if (damageE <= 0) { damageE = 0; }
             healtP = healtP - damageE;
-            life(healtP, healtE);//testuje životy
+           //testuje životy
 
             Health.Content = healtE;
             enemyL.Value = healtE;
             playerL.Value = healtP;
             specialP.Value = special;
-            if(special == 5){ Special.Visibility = Visibility.Visible;} else { Special.Visibility = Visibility.Hidden; }
+            life(healtP, healtE);
+            if (special == 5){ Special.Visibility = Visibility.Visible;} else { Special.Visibility = Visibility.Hidden; }
             if(defBonus== 0){
                 deffP = deffP / 2;
             }
@@ -128,11 +131,19 @@ namespace Draci_doupe
         {
             if(lifeP <= 0)
             {
-                Stats.Content = lifeE;
+                MessageBox.Show("Trošku si to podcenil omdlel si");
             }
             else if (lifeE <= 0)
             {
-                Stats.Content = lifeE;
+                MessageBox.Show("Gratuluji vyhrál si");
+            }
+            if (lifeP <= 0 | lifeE <= 0){
+                reload.Visibility = Visibility.Visible;
+                back.Visibility = Visibility.Visible;
+                Attack.Visibility = Visibility.Hidden;
+                Deffence.Visibility = Visibility.Hidden;
+                Heal.Visibility = Visibility.Hidden;
+                Special.Visibility = Visibility.Hidden;
             }
         }
         private void Attack_Click(object sender, RoutedEventArgs e)
@@ -209,6 +220,20 @@ namespace Draci_doupe
             myBrush.ImageSource =
                 new BitmapImage(new Uri("pack://application:,,,/picture/" + picture + ".jpg", UriKind.Absolute));
             this.Background = myBrush;
+        }
+
+        private void reload_Click(object sender, RoutedEventArgs e)
+        {
+            Battle customization = new Battle(place1);
+            customization.Show();
+            this.Close();
+        }
+
+        private void back_Click(object sender, RoutedEventArgs e)
+        {
+            Map customization = new Map();
+            customization.Show();
+            this.Close();
         }
     }
 }

@@ -7,15 +7,15 @@
         mc:Ignorable="d"
          WindowState="Maximized"
         FontFamily ="./Fonts/#Minecrafter"
-        Title="City" Height="768" Width="1366"  >
-    <Grid Width="1366" Height="768">
+        Title="City" Width="1920" Height="1080"  >
+    <Grid Width="1920" Height="1080">
         <Grid.Background >
             <ImageBrush ImageSource="picture\city.jpg" />
         </Grid.Background>
-        <Button x:Name="Hospoda" Height="50"  Content="Hospoda" HorizontalAlignment="Left" Margin="270,292,0,0" VerticalAlignment="Top" Width="100" FontFamily="/Draci-doupe;component/Fonts/#Minecrafter Alt" FontSize="15"/>
-        <Button x:Name="Obchodnik" Height="50" Content="Obchodnik" HorizontalAlignment="Left" Margin="790,330,0,0" VerticalAlignment="Top" Width="100" FontFamily="/Draci-doupe;component/Fonts/#Minecrafter Alt" FontSize="15"/>
-        <Button x:Name="Dum" Content="Pozemek" Height="50" FontFamily="/Draci-doupe;component/Fonts/#Minecrafter Alt" HorizontalAlignment="Left" Margin="1116,605,0,0" VerticalAlignment="Top" Width="100
-                " FontSize="15"/>
+        <Button x:Name="Hospoda" Height="50"  Content="Hospoda" HorizontalAlignment="Left" Margin="312,471,0,0" VerticalAlignment="Top" Width="100" FontFamily="/Draci-doupe;component/Fonts/#Minecrafter Alt" FontSize="15" Click="Hospoda_Click"/>
+        <Button x:Name="Obchodnik" Height="50" Content="Obchodnik" HorizontalAlignment="Left" Margin="1156,452,0,0" VerticalAlignment="Top" Width="100" FontFamily="/Draci-doupe;component/Fonts/#Minecrafter Alt" FontSize="15"/>
+        <Button x:Name="Dum" Content="Pozemek" Height="50" FontFamily="/Draci-doupe;component/Fonts/#Minecrafter Alt" HorizontalAlignment="Left" Margin="1482,841,0,0" VerticalAlignment="Top" Width="100" FontSize="15"/>
+        <Button x:Name="map" Content="Mapa" HorizontalAlignment="Left" Margin="853,841,0,0" VerticalAlignment="Top" Height="50" Width="100" FontFamily="/Draci-doupe;component/Fonts/#Minecrafter Alt" FontSize="15" Click="map_Click"/>
 
     </Grid>
 </Window>

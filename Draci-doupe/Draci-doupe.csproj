@@ -115,6 +115,9 @@
     <Compile Include="Resources.xaml.cs">
       <DependentUpon>Resources.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Tavern.xaml.cs">
+      <DependentUpon>Tavern.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Tridy\Enemies.cs" />
     <Compile Include="Tridy\EnemiesDatabase.cs" />
     <Compile Include="Tridy\Inventory.cs" />
@@ -175,6 +178,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Resources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Tavern.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
