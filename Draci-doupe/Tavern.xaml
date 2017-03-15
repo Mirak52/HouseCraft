@@ -10,16 +10,16 @@
         Title="Tavern" Height="1080" Width="1920">
     <Grid Height="1080" Width="1920">
         <StackPanel Margin="456,204,1296,600">
-            <Button x:Name="gossip" Width="100" Height="40" FontSize="20" Content="Drby" FontFamily="/Draci-doupe;component/Fonts/#Minecrafter Alt"/>
+            <Button x:Name="gossip" Width="100" Height="40" FontSize="20" Content="Drby" FontFamily="/Draci-doupe;component/Fonts/#Minecrafter Alt" Click="gossip_Click"/>
             <Label Height="20"></Label>
-            <Button x:Name="quest" Width="100" Height="40" FontSize="20"  Content="ukoly" FontFamily="/Draci-doupe;component/Fonts/#Minecrafter Alt"/>
+            <Button x:Name="quest" Width="100" Height="40" FontSize="20"  Content="ukoly" FontFamily="/Draci-doupe;component/Fonts/#Minecrafter Alt" Click="quest_Click"/>
             <Label Height="20"></Label>
-            <Button x:Name="Beer" Width="100" Height="40" FontSize="20"  Content="pivo" FontFamily="/Draci-doupe;component/Fonts/#Minecrafter Alt"/>
+            <Button x:Name="Beer" Width="100" Height="40" FontSize="20"  Content="pivo" FontFamily="/Draci-doupe;component/Fonts/#Minecrafter Alt" Click="Beer_Click"/>
             <Label Height="20"></Label>
-            <Button x:Name="City" Width="100" Height="40" FontSize="20"  Content="odchod" FontFamily="/Draci-doupe;component/Fonts/#Minecrafter Alt"/>
-
+            <Button x:Name="City" Width="100" Height="40" FontSize="20"  Content="odchod" FontFamily="/Draci-doupe;component/Fonts/#Minecrafter Alt" Click="City_Click"/>
         </StackPanel>
         <Label x:Name="Text" Content="Label" FontSize="15" HorizontalAlignment="Left" Margin="982,204,0,0" VerticalAlignment="Top"/>
         <Button x:Name="Accept" Content="Prijmout" Width="100" Height="40" FontSize="20" HorizontalAlignment="Left" Margin="1326,480,0,0" VerticalAlignment="Top" FontFamily="/Draci-doupe;component/Fonts/#Minecrafter Alt"/>
+        <Label x:Name="gold" Content="Money" HorizontalAlignment="Left" FontSize="30" Margin="1580,79,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>
