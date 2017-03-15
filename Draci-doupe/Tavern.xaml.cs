@@ -22,6 +22,7 @@ namespace Draci_doupe
         public Tavern()
         {
             InitializeComponent();
+            gsdfasdfasdfas
         }
     }
 }
