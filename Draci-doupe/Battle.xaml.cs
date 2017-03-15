@@ -122,7 +122,7 @@ namespace Draci_doupe
             playerL.Value = healtP;
             specialP.Value = special;
             life(healtP, healtE);
-            if (special == 5){ Special.Visibility = Visibility.Visible;} else { Special.Visibility = Visibility.Hidden; }
+            if (special >= 5){ Special.Visibility = Visibility.Visible;} else { Special.Visibility = Visibility.Hidden; }
             if(defBonus== 0){
                 deffP = deffP / 2;
             }

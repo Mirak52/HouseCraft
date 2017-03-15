@@ -20,13 +20,17 @@ namespace Draci_doupe
     /// <summary>
     /// Interaction logic for Tavern.xaml
     /// </summary>
+    /// 
+
     public partial class Tavern : Window
     {
+        Random random = new Random();
+
         public Tavern()
         {
-            Inventory Skills = new Inventory();
+            /*Inventory Skills = new Inventory();
             Skills.Money = 500;
-            Database2.SaveItemAsync(Skills);
+            Database2.SaveItemAsync(Skills);*/
             InitializeComponent();
             Money(0);
 
@@ -44,23 +48,36 @@ namespace Draci_doupe
                     gold.Content = osoby.Money - 20;
                     Inventory Skills = new Inventory();
                     Skills.Money = osoby.Money - 20;
+                    Skills.Stone = osoby.Stone;
+                    Skills.Brick = osoby.Glass;
+                    Skills.ID = osoby.ID;
+                    Skills.Sand = osoby.Sand;
+                    Skills.Wood = osoby.Wood;
+                    Skills.Seeds = osoby.Seeds;
                     Database2.SaveItemAsync(Skills);
-                    command = 0;
+                    
                 }
                 if(osoby.Money <= 20){Beer.Visibility = Visibility.Hidden;}
                 if(command == 2)
                 {
-                    var itemsFromDb1 = Database1.QueryGet().Result;
+                    int rnd = random.Next(1,4);
+                    var itemsFromDb1 = Database1.GetItemsFromDatabase(rnd).Result;
                     foreach (var drby in itemsFromDb1)
                     {
                         Text.Content = drby.text;
                     }
                  }
                if (command == 3)
+               {
+                   Accept.Visibility = Visibility.Visible;
+          
+
+               }
+                if (command == 4)
                 {
-
-
+                    
                 }
+                command = 0;
             }
         }
         private void gossip_Click(object sender, RoutedEventArgs e)
@@ -122,6 +139,11 @@ namespace Draci_doupe
                 }
                 return _database2;
             }
+        }
+
+        private void Accept_Click(object sender, RoutedEventArgs e)
+        {
+            Money(4);
         }
     }
 }

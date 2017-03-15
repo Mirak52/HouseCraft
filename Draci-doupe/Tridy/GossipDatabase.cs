@@ -35,9 +35,10 @@ namespace Draci_doupe.Tridy
                 return database.InsertAsync(item);
             }
         }
-        public Task<List<Gossip>> GetItemsFromDatabase()
+        public Task<List<Gossip>> GetItemsFromDatabase(int id)
         {
-            return database.QueryAsync<Gossip>("SELECT * FROM [Gossip] WHERE [Done] = 0");
+            return database.QueryAsync<Gossip>("SELECT * FROM [Gossip] WHERE [ID] = " + id);
         }
+
     }
 }
