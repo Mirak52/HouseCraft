@@ -48,18 +48,29 @@ namespace Draci_doupe
                     command = 0;
                 }
                 if(osoby.Money <= 20){Beer.Visibility = Visibility.Hidden;}
+                if(command == 2)
+                {
+                    var itemsFromDb1 = Database1.QueryGet().Result;
+                    foreach (var drby in itemsFromDb1)
+                    {
+                        Text.Content = drby.text;
+                    }
+                 }
+               if (command == 3)
+                {
+
+
+                }
             }
         }
         private void gossip_Click(object sender, RoutedEventArgs e)
         {
-
+            Money(2);
         }
-
         private void quest_Click(object sender, RoutedEventArgs e)
         {
-
+            Money(3);
         }
-
         private void Beer_Click(object sender, RoutedEventArgs e)
         {
             Money(1); //přidat 
@@ -74,7 +85,7 @@ namespace Draci_doupe
 
 
         public static EnemiesDatabase _database;
-        public static OsobyDatabase _database1;
+        public static GossipDatabase _database1;
         public static InventoryDatabase _database2;
         public static EnemiesDatabase Database
         {
@@ -88,14 +99,14 @@ namespace Draci_doupe
                 return _database;
             }
         }
-        public static OsobyDatabase Database1
+        public static GossipDatabase Database1
         {
             get
             {
                 if (_database1 == null)
                 {
                     var fileHelper = new Filehelper();
-                    _database1 = new OsobyDatabase(fileHelper.GetLocalFilePath("TodoSQLite.db3"));
+                    _database1 = new GossipDatabase(fileHelper.GetLocalFilePath("TodoSQLite.db3"));
                 }
                 return _database1;
             }

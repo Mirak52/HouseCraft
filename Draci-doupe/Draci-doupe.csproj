@@ -120,6 +120,8 @@
     </Compile>
     <Compile Include="Tridy\Enemies.cs" />
     <Compile Include="Tridy\EnemiesDatabase.cs" />
+    <Compile Include="Tridy\Gossip.cs" />
+    <Compile Include="Tridy\GossipDatabase.cs" />
     <Compile Include="Tridy\Inventory.cs" />
     <Compile Include="Tridy\InventoryDatabase.cs" />
     <Compile Include="Tutorial.xaml.cs">
