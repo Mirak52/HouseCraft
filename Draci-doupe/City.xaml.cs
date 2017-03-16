@@ -37,5 +37,12 @@ namespace Draci_doupe
             move.Show();
             this.Close();
         }
+
+        private void Dum_Click(object sender, RoutedEventArgs e)
+        {
+            House move = new House();
+            move.Show();
+            this.Close();
+        }
     }
 }

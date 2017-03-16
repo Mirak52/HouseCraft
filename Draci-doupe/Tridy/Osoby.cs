@@ -16,6 +16,7 @@ namespace Draci_doupe.Třídy
         public int Chopping { get; set; }
         public int Level { get; set; }
         public int Money { get; set; }
+        public int LevelHouse { get; set; }
         public Osoby()
         {
         }

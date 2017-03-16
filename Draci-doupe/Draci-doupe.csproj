@@ -106,6 +106,9 @@
     <Compile Include="City.xaml.cs">
       <DependentUpon>City.xaml</DependentUpon>
     </Compile>
+    <Compile Include="House.xaml.cs">
+      <DependentUpon>House.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Map.xaml.cs">
       <DependentUpon>Map.xaml</DependentUpon>
     </Compile>
@@ -124,6 +127,8 @@
     <Compile Include="Tridy\GossipDatabase.cs" />
     <Compile Include="Tridy\Inventory.cs" />
     <Compile Include="Tridy\InventoryDatabase.cs" />
+    <Compile Include="Tridy\Requirement.cs" />
+    <Compile Include="Tridy\RequirementDatabase.cs" />
     <Compile Include="Tutorial.xaml.cs">
       <DependentUpon>Tutorial.xaml</DependentUpon>
     </Compile>
@@ -143,6 +148,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Credits.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="House.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -210,6 +219,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="TodoSQLite.db3" />
     <Resource Include="Fonts\Minecrafter.ttf" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

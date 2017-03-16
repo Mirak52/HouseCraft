@@ -115,6 +115,8 @@ namespace Draci_doupe
             Skills.Deffence = (int)convertor(DeffenceL.Content);
             Skills.Mining = (int)convertor(MiningL.Content);
             Skills.Chopping = (int)convertor(ChoppingL.Content);
+            var itemsFromDb = Database.QueryGet().Result;
+            foreach (var osoby in itemsFromDb){Skills.LevelHouse = osoby.LevelHouse;}
             Database.SaveItemAsync(Skills);
             Map Page = new Map();
             Page.Show();
