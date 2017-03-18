@@ -24,7 +24,7 @@ namespace Draci_doupe
 
     public partial class Tavern : Window
     {
-        Random random = new Random();
+        
 
         public Tavern()
         {
@@ -32,6 +32,15 @@ namespace Draci_doupe
             Skills.Money = 500;
             Database2.SaveItemAsync(Skills);*/
             InitializeComponent();
+            var itemsFromDb = Database.QueryGet().Result;
+            foreach (var variable in itemsFromDb)
+            {
+                var itemsFromDb1 = Database1.GetItemsFromDatabase(variable.Quest).Result;
+                foreach (var drby in itemsFromDb1)
+                {
+                    Text.Content = drby.text;
+                }
+            }
             Money(0);
 
         }
@@ -45,9 +54,9 @@ namespace Draci_doupe
 
                 if(command == 1)
                 {
-                    gold.Content = osoby.Money - 20;
+                    gold.Content = osoby.Money - 5;
                     Inventory Skills = new Inventory();
-                    Skills.Money = osoby.Money - 20;
+                    Skills.Money = osoby.Money - 5;
                     Skills.Stone = osoby.Stone;
                     Skills.Brick = osoby.Glass;
                     Skills.ID = osoby.ID;
@@ -57,16 +66,8 @@ namespace Draci_doupe
                     Database2.SaveItemAsync(Skills);
                     
                 }
-                if(osoby.Money <= 20){Beer.Visibility = Visibility.Hidden;}
-                if(command == 2)
-                {
-                    int rnd = random.Next(1,4);
-                    var itemsFromDb1 = Database1.GetItemsFromDatabase(rnd).Result;
-                    foreach (var drby in itemsFromDb1)
-                    {
-                        Text.Content = drby.text;
-                    }
-                 }
+                if(osoby.Money <= 5){Beer.Visibility = Visibility.Hidden;}
+               
                if (command == 3)
                {
                    Accept.Visibility = Visibility.Visible;
@@ -75,15 +76,22 @@ namespace Draci_doupe
                }
                 if (command == 4)
                 {
-                    
+                    var itemsFromDb2 = Database.QueryGet().Result;
+                    foreach (var variable in itemsFromDb2)
+                    {
+                        var itemsFromDb1 = Database1.GetItemsFromDatabase(variable.Quest).Result;
+                        foreach (var drby in itemsFromDb1)
+                        {
+                            Battle customization = new Battle(drby.enemy);
+                            customization.Show();
+                            this.Close();
+                        }
+                    }
                 }
                 command = 0;
             }
         }
-        private void gossip_Click(object sender, RoutedEventArgs e)
-        {
-            Money(2);
-        }
+      
         private void quest_Click(object sender, RoutedEventArgs e)
         {
             Money(3);
@@ -101,17 +109,17 @@ namespace Draci_doupe
 
 
 
-        public static EnemiesDatabase _database;
+        public static OsobyDatabase _database;
         public static GossipDatabase _database1;
         public static InventoryDatabase _database2;
-        public static EnemiesDatabase Database
+        public static OsobyDatabase Database
         {
             get
             {
                 if (_database == null)
                 {
                     var fileHelper = new Filehelper();
-                    _database = new EnemiesDatabase(fileHelper.GetLocalFilePath("TodoSQLite.db3"));
+                    _database = new OsobyDatabase(fileHelper.GetLocalFilePath("TodoSQLite.db3"));
                 }
                 return _database;
             }
@@ -132,7 +140,7 @@ namespace Draci_doupe
         {
             get
             {
-                if (_database1 == null)
+                if (_database2 == null)
                 {
                     var fileHelper = new Filehelper();
                     _database2 = new InventoryDatabase(fileHelper.GetLocalFilePath("TodoSQLite.db3"));

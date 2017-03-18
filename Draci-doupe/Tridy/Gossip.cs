@@ -11,6 +11,6 @@ namespace Draci_doupe.Tridy
         [PrimaryKey, AutoIncrement]
         public int ID { get; set; }
         public string text { get; set; }
-        
+        public int enemy { get; set; }
     }
 }

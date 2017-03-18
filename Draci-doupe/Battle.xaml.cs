@@ -42,13 +42,7 @@ namespace Draci_doupe
                     place = rnd;
                     break;
             }
-            Osoby enemyS = new Osoby();
-            enemyS.Damage = 6;
-            enemyS.Health = 10;
-            enemyS.Deffence = 5;
-            Database1.SaveItemAsync(enemyS);
-           
-            place = 1;
+
            
             var itemsFromDb = Database.GetItemsFromDatabase(place).Result;
             foreach (var mob in itemsFromDb)
@@ -127,25 +121,31 @@ namespace Draci_doupe
                 deffP = deffP / 2;
             }
         }
-        private void life(int lifeP,int lifeE)
+
+        private void life(int lifeP, int lifeE)
         {
-            if(lifeP <= 0)
+            if (lifeP <= 0)
             {
                 MessageBox.Show("Trošku si to podcenil omdlel si");
             }
             else if (lifeE <= 0)
             {
                 MessageBox.Show("Gratuluji vyhrál si");
+          
+                }
+               
+                if (lifeP <= 0 | lifeE <= 0)
+                {
+                    reload.Visibility = Visibility.Visible;
+                    back.Visibility = Visibility.Visible;
+                    Attack.Visibility = Visibility.Hidden;
+                    Deffence.Visibility = Visibility.Hidden;
+                    Heal.Visibility = Visibility.Hidden;
+                    Special.Visibility = Visibility.Hidden;
+                }
             }
-            if (lifeP <= 0 | lifeE <= 0){
-                reload.Visibility = Visibility.Visible;
-                back.Visibility = Visibility.Visible;
-                Attack.Visibility = Visibility.Hidden;
-                Deffence.Visibility = Visibility.Hidden;
-                Heal.Visibility = Visibility.Hidden;
-                Special.Visibility = Visibility.Hidden;
-            }
-        }
+        
+
         private void Attack_Click(object sender, RoutedEventArgs e)
         {
             Action("Attack_Click");
@@ -167,7 +167,7 @@ namespace Draci_doupe
         }
         public static EnemiesDatabase _database;
         public static OsobyDatabase _database1;
-        public static InventoryDatabase _database2;
+       
         public static EnemiesDatabase Database
         {
             get
@@ -192,11 +192,12 @@ namespace Draci_doupe
                 return _database1;
             }
         }
+        public static InventoryDatabase _database2;
         public static InventoryDatabase Database2
         {
             get
             {
-                if (_database1 == null)
+                if (_database2 == null)
                 {
                     var fileHelper = new Filehelper();
                     _database2 = new InventoryDatabase(fileHelper.GetLocalFilePath("TodoSQLite.db3"));
@@ -216,10 +217,10 @@ namespace Draci_doupe
                     picture = "pirateBay";
                     break;
             }
-            ImageBrush myBrush = new ImageBrush();
+            /*ImageBrush myBrush = new ImageBrush();
             myBrush.ImageSource =
                 new BitmapImage(new Uri("pack://application:,,,/picture/" + picture + ".jpg", UriKind.Absolute));
-            this.Background = myBrush;
+            this.Background = myBrush;*/
         }
 
         private void reload_Click(object sender, RoutedEventArgs e)
@@ -231,9 +232,25 @@ namespace Draci_doupe
 
         private void back_Click(object sender, RoutedEventArgs e)
         {
-            Map customization = new Map();
-            customization.Show();
-            this.Close();
+            var itemsFromDb5 = Database2.QueryGet().Result;
+            foreach (var inventory in itemsFromDb5)
+            {
+
+                  Inventory inv = new Inventory();
+                   inv.ID = inventory.ID;
+                   inv.Stone = inventory.Stone;
+                   inv.Wood = inventory.Wood;
+                   inv.Brick = inventory.Brick;
+                   inv.Sand = inventory.Sand;
+                   inv.Glass = inventory.Glass;
+                   inv.Seeds = inventory.Seeds;
+                   inv.Money = Convert.ToInt32(Price.Content);
+                   Database2.SaveItemAsync(inv);
+                
+                Map customization = new Map();
+                customization.Show();
+                this.Close();
+            }
         }
     }
 }

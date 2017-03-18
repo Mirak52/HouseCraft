@@ -93,22 +93,36 @@ namespace Draci_doupe
             int skill = Convert.ToInt32(Skill.Content) /2;
             if (control == 5)
             {
-                Inventory item = new Inventory();
-                int current = Convert.ToInt32(Current.Content);
-                item.ID = Convert.ToInt32(ID.Content);
-                if (place == "LES")
+                var itemsFromDb = Database1.QueryGet().Result;
+                foreach (var inventory in itemsFromDb)
                 {
-                    Show(plac);
-                    item.Wood = skill + current;
+                    {
+                        Inventory inv = new Inventory();
+                        int current = Convert.ToInt32(Current.Content);
+                        inv.ID = Convert.ToInt32(ID.Content);
+                        if (place == "LES")
+                        {
+                            Show(plac);
+                            inv.Wood = skill + current;
+                            inv.Stone = inventory.Stone;
+                        }
+                        else if (place == "DUL")
+                        {
+                            plac = 1;
+                            
+                            inv.Stone = skill + current;
+                            inv.Wood = inventory.Wood;
+                        }
+                        inv.Brick = inventory.Brick;
+                        inv.Sand = inventory.Sand;
+                        inv.Glass = inventory.Glass;
+                        inv.Seeds = inventory.Seeds;
+                        inv.Money = inventory.Money;
+                        Database1.SaveItemAsync(inv);
+                        Show(plac);
+                        control = 0;
+                    }
                 }
-                else if (place == "DUL")
-                {
-                    plac = 1;
-                    Show(plac);
-                    item.Stone = skill + current;
-                }
-                Database1.SaveItemAsync(item);
-                control = 0;
             }
             Bar.Value = 20 * control;
         }

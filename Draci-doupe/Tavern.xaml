@@ -10,8 +10,6 @@
         Title="Tavern" Height="1080" Width="1920">
     <Grid Height="1080" Width="1920">
         <StackPanel Margin="-494,311,494,-311">
-            <Button x:Name="gossip" Width="100" Height="40" FontSize="20" Content="Vtipy" FontFamily="/Draci-doupe;component/Fonts/#Minecrafter Alt" Click="gossip_Click"/>
-            <Label Height="20"></Label>
             <Button x:Name="quest" Width="100" Height="40" FontSize="20"  Content="ukoly" FontFamily="/Draci-doupe;component/Fonts/#Minecrafter Alt" Click="quest_Click"/>
             <Label Height="20"></Label>
             <Button x:Name="Beer" Width="100" Height="40" FontSize="20"  Content="pivo" FontFamily="/Draci-doupe;component/Fonts/#Minecrafter Alt" Click="Beer_Click"/>

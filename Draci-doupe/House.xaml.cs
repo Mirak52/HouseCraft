@@ -43,11 +43,11 @@ namespace Draci_doupe
                                         "/" + inventar.Stone + " Cihly: " + pozadavek.Brick + "/" + inventar.Brick +
                                         " Písek: " + pozadavek.Sand + "/" + inventar.Sand + " sklo: " + pozadavek.Glass +
                                         "/" + inventar.Glass + " Semínka: " + pozadavek.Seeds + "/" + inventar.Seeds +
-                                        " Cena: " + pozadavek.Money + "/" + inventar.Money;
+                                        " Cena: " + pozadavek.Money + "/" + inventar.Money +" Ukoly: " + pozadavek.Quest +"/" + level.Quest;
                         if (pozadavek.Wood <= inventar.Wood & pozadavek.Stone <= inventar.Stone &
                             pozadavek.Brick <= inventar.Brick & pozadavek.Sand <= inventar.Sand &
                             pozadavek.Glass <= inventar.Glass & pozadavek.Seeds <= inventar.Seeds &
-                            pozadavek.Money <= inventar.Money)
+                            pozadavek.Money <= inventar.Money & pozadavek.Quest <= level.Quest)
                         {
                             Upgrade.Visibility = Visibility.Visible;
                         }
@@ -70,8 +70,8 @@ namespace Draci_doupe
                 houseLevel.Health = house.Health;
                 houseLevel.Level = house.Level;
                 houseLevel.Mining = house.Mining;
-                houseLevel.Money = house.Money;
                 houseLevel.LevelHouse = house.LevelHouse + 1;
+                house.Quest = house.Quest;
                 Database2.SaveItemAsync(houseLevel);
                
             }

@@ -44,5 +44,12 @@ namespace Draci_doupe
             customization.Show();
             this.Close();
         }
+
+        private void Pirates_Click(object sender, RoutedEventArgs e)
+        {
+            Battle customization = new Battle(1);
+            customization.Show();
+            this.Close();
+        }
     }
 }

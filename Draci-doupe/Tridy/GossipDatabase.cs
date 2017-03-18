@@ -18,11 +18,11 @@ namespace Draci_doupe.Tridy
         }
         public Task<List<Gossip>> QueryDeleteAll()
         {
-            return database.QueryAsync<Gossip>("DELETE FROM [Inventory]");
+            return database.QueryAsync<Gossip>("DELETE FROM [Gossip]");
         }
         public Task<List<Gossip>> QueryGet()
         {
-            return database.QueryAsync<Gossip>("SELECT * FROM [Inventory] ORDER BY ID DESC LIMIT 1;");
+            return database.QueryAsync<Gossip>("SELECT * FROM [Gossip] ORDER BY ID DESC LIMIT 1;");
         }
         public Task<int> SaveItemAsync(Gossip item)
         {

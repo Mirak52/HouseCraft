@@ -16,6 +16,7 @@ namespace Draci_doupe.Tridy
         public int Sand { get; set; }
         public int Glass { get; set; }
         public int Seeds { get; set; }
+
         public Inventory()
         {
         }

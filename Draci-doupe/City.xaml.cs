@@ -44,5 +44,12 @@ namespace Draci_doupe
             move.Show();
             this.Close();
         }
+
+        private void Obchodnik_Click(object sender, RoutedEventArgs e)
+        {
+            Market customization = new Market();
+            customization.Show();
+            this.Close();
+        }
     }
 }
