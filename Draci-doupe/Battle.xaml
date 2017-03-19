@@ -8,7 +8,20 @@
          WindowState="Maximized"
         FontFamily ="./Fonts/#Minecrafter"
         Title="Battle" Height="768" Width="1366" >
-    <Grid OpacityMask="Red">
+    <Grid OpacityMask="Red" Opacity="0.8">
+        <Grid.Background >
+            <ImageBrush ImageSource="picture\battle.jpg" Opacity="0.5" />
+        </Grid.Background>
+        <Image Source="picture\steve.png" Margin="136,173,865,223" RenderTransformOrigin="0.4,0.502">
+            <Image.Effect>
+                <DropShadowEffect/>
+            </Image.Effect>
+        </Image>
+        <Image x:Name="Change" Source="picture\pirate.png" Margin="945,173,129,270" RenderTransformOrigin="0.4,0.502">
+            <Image.Effect>
+                <DropShadowEffect/>
+            </Image.Effect>
+        </Image>
         <StackPanel Margin="59,147,1184,269">
             <Button FontSize="20" x:Name="Attack" Content="Utok" HorizontalAlignment="Left"  Height="50" VerticalAlignment="Top" Width="100" FontFamily="/Draci-doupe;component/Fonts/#Minecrafter Alt" Click="Attack_Click"/>
             <Label Height="15"></Label>
@@ -32,6 +45,7 @@
         <Label x:Name="HealthP" Content="" Visibility="Hidden"></Label>
         <Label x:Name="DamageP" Content="" Visibility="Hidden"></Label>
         <Label x:Name="DeffP" Content="" Visibility="Hidden"></Label>
+        <Label x:Name="Place" Content="" Visibility="Hidden"></Label>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,350,0,0" >
             <Button x:Name="reload" Content="Opakovat" Visibility="Hidden" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="150" FontFamily="/Draci-doupe;component/Fonts/#Minecrafter Alt" FontSize="25" Click="reload_Click"/>
             <Label Height="30"></Label>

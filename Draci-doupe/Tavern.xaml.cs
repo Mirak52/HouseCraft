@@ -38,7 +38,15 @@ namespace Draci_doupe
                 var itemsFromDb1 = Database1.GetItemsFromDatabase(variable.Quest).Result;
                 foreach (var drby in itemsFromDb1)
                 {
+                    if (drby.ID == 6)
+                    {
+                        Text.Content = "Všechny ukoly splněny";
+                        Accept.Visibility = Visibility.Hidden;
+                    }
+                    else { 
                     Text.Content = drby.text;
+                    }
+
                 }
             }
             Money(0);
@@ -80,9 +88,9 @@ namespace Draci_doupe
                     foreach (var variable in itemsFromDb2)
                     {
                         var itemsFromDb1 = Database1.GetItemsFromDatabase(variable.Quest).Result;
-                        foreach (var drby in itemsFromDb1)
+                        foreach (var quest in itemsFromDb1)
                         {
-                            Battle customization = new Battle(drby.enemy);
+                            Battle customization = new Battle(quest.enemy);
                             customization.Show();
                             this.Close();
                         }

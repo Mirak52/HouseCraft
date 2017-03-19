@@ -38,6 +38,7 @@ namespace Draci_doupe
            var itemsFromDb = Database1.QueryGet().Result;
                 foreach (var inventory in itemsFromDb)
                 {
+                 
                     int money1 = inventory.Money + money;
                     if (info == 1 & money1 >= 30){brick++;money = money - 30;}
                     if (info == 2 & money1 >= 15){money = money - 15;sand++;}

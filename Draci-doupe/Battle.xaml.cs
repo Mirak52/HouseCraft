@@ -25,21 +25,42 @@ namespace Draci_doupe
         int special = 0;
         int defBonus;
         int place1;
+      
         Random random = new Random();
         public Battle(int place)
         {
             InitializeComponent();
             place1 = place;
             background(place);
+            Place.Content = place;
             switch (place)
             {
                 case 1:
                     int rnd = random.Next(2,5); //přidat tlačítko na reload
                     place = rnd;
+                    Change.Source = new BitmapImage(new Uri(@"pack://application:,,,/Draci-doupe;component/picture/pirate.png"));
                     break;
                 case 2:
                     rnd = random.Next(8,9);
                     place = rnd;
+                    break;
+                case 8:
+                    Change.Source = new BitmapImage(new Uri(@"pack://application:,,,/Draci-doupe;component/picture/magma.png"));
+                    break;
+                case 10:
+                    Change.Source = new BitmapImage(new Uri(@"pack://application:,,,/Draci-doupe;component/picture/dog.png"));
+                    break;
+                case 11:
+                    Change.Source = new BitmapImage(new Uri(@"pack://application:,,,/Draci-doupe;component/picture/villager.png"));
+                    break;
+                case 12:
+                    Change.Source = new BitmapImage(new Uri(@"pack://application:,,,/Draci-doupe;component/picture/ninja.png"));
+                    break;
+                case 13:
+                    Change.Source = new BitmapImage(new Uri(@"pack://application:,,,/Draci-doupe;component/picture/golem.png"));
+                    break;
+                case 14:
+                    Change.Source = new BitmapImage(new Uri(@"pack://application:,,,/Draci-doupe;component/picture/witch.png"));
                     break;
             }
 
@@ -109,8 +130,8 @@ namespace Draci_doupe
             damageE = damageE - deffP;
             if (damageE <= 0) { damageE = 0; }
             healtP = healtP - damageE;
-           //testuje životy
-
+            //testuje životy
+            HealthP.Content = healtP;
             Health.Content = healtE;
             enemyL.Value = healtE;
             playerL.Value = healtP;
@@ -131,10 +152,44 @@ namespace Draci_doupe
             else if (lifeE <= 0)
             {
                 MessageBox.Show("Gratuluji vyhrál si");
-          
+                var itemsFromDb5 = Database2.QueryGet().Result;
+                foreach (var inventory in itemsFromDb5)
+                {
+
+                    Inventory inv = new Inventory();
+                    inv.ID = inventory.ID;
+                    inv.Stone = inventory.Stone;
+                    inv.Wood = inventory.Wood;
+                    inv.Brick = inventory.Brick;
+                    inv.Sand = inventory.Sand;
+                    inv.Glass = inventory.Glass;
+                    inv.Seeds = inventory.Seeds;
+                    inv.Money = inventory.Money + Convert.ToInt32(Price.Content);
+                    Database2.SaveItemAsync(inv);
+
                 }
-               
-                if (lifeP <= 0 | lifeE <= 0)
+                if (Convert.ToInt32(Place.Content) >= 10)
+                {
+                    var itemsFromDb2 = Database1.QueryGet().Result;
+                    foreach (var house in itemsFromDb2)
+                    {
+                        Osoby houseLevel = new Osoby();
+                        houseLevel.ID = house.ID;
+                        houseLevel.Chopping = house.Chopping;
+                        houseLevel.Damage = house.Damage;
+                        houseLevel.Deffence = house.Deffence;
+                        houseLevel.Health = house.Health;
+                        houseLevel.Level = house.Level;
+                        houseLevel.Mining = house.Mining;
+                        houseLevel.LevelHouse = house.LevelHouse;
+                        houseLevel.Quest = house.Quest + 1;
+                        Database1.SaveItemAsync(houseLevel);
+                        pointChoose move = new pointChoose();
+                        move.Show();
+                        this.Close();
+                    }
+            }
+            if (lifeP <= 0 | lifeE <= 0)
                 {
                     reload.Visibility = Visibility.Visible;
                     back.Visibility = Visibility.Visible;
@@ -144,11 +199,14 @@ namespace Draci_doupe
                     Special.Visibility = Visibility.Hidden;
                 }
             }
+            }
         
 
         private void Attack_Click(object sender, RoutedEventArgs e)
         {
             Action("Attack_Click");
+            
+           // Change.Source = new BitmapImage(new Uri(@"pack://application:,,,/Draci-doupe;component/picture/"+picture+ ".png"));
         }
 
         private void Deffence_Click(object sender, RoutedEventArgs e)
@@ -232,25 +290,11 @@ namespace Draci_doupe
 
         private void back_Click(object sender, RoutedEventArgs e)
         {
-            var itemsFromDb5 = Database2.QueryGet().Result;
-            foreach (var inventory in itemsFromDb5)
-            {
-
-                  Inventory inv = new Inventory();
-                   inv.ID = inventory.ID;
-                   inv.Stone = inventory.Stone;
-                   inv.Wood = inventory.Wood;
-                   inv.Brick = inventory.Brick;
-                   inv.Sand = inventory.Sand;
-                   inv.Glass = inventory.Glass;
-                   inv.Seeds = inventory.Seeds;
-                   inv.Money = Convert.ToInt32(Price.Content);
-                   Database2.SaveItemAsync(inv);
-                
+           
                 Map customization = new Map();
                 customization.Show();
                 this.Close();
             }
         }
     }
-}
+

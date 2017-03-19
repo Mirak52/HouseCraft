@@ -138,10 +138,6 @@
     <Compile Include="Tridy\Filehelper.cs" />
     <Compile Include="Tridy\Osoby.cs" />
     <Compile Include="Tridy\OsobyDatabase.cs" />
-    <Page Include="Action.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Battle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -166,9 +162,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="Action.xaml.cs">
-      <DependentUpon>Action.xaml</DependentUpon>
-    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -253,6 +246,43 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="picture\market.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="picture\wallpaper.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="picture\wallpaper1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="picture\skill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="picture\battle.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="picture\steve.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="picture\pirate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="picture\dog.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="picture\magma.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="picture\golem.png" />
+    <Resource Include="picture\ninja.png" />
+    <Resource Include="picture\villager.png" />
+    <Resource Include="picture\witch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="picture\1.png" />
+    <Resource Include="picture\2.png" />
+    <Resource Include="picture\3.png" />
+    <Resource Include="picture\4.jpg" />
+    <Resource Include="picture\5.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\SQLitePCLRaw.lib.e_sqlite3.linux.1.1.2\build\SQLitePCLRaw.lib.e_sqlite3.linux.targets" Condition="Exists('..\packages\SQLitePCLRaw.lib.e_sqlite3.linux.1.1.2\build\SQLitePCLRaw.lib.e_sqlite3.linux.targets')" />

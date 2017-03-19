@@ -90,7 +90,7 @@ namespace Draci_doupe
             int plac = 0;
             control++;
             string place = Convert.ToString(Place.Content);
-            int skill = Convert.ToInt32(Skill.Content) /2;
+            int skill = Convert.ToInt32(Skill.Content);
             if (control == 5)
             {
                 var itemsFromDb = Database1.QueryGet().Result;

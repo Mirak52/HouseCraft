@@ -16,7 +16,7 @@
             <Label Height="20"></Label>
             <Button x:Name="City" Width="100" Height="40" FontSize="20"  Content="odchod" FontFamily="/Draci-doupe;component/Fonts/#Minecrafter Alt" Click="City_Click"/>
         </StackPanel>
-        <Label x:Name="Text" Content="Label" FontSize="15" HorizontalAlignment="Left" Margin="825,320,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="Text" Content="Label" FontSize="15" HorizontalAlignment="Left" Margin="606,311,0,0" VerticalAlignment="Top"/>
         <Button x:Name="Accept" Content="Prijmout" Width="100" Height="40" FontSize="20" HorizontalAlignment="Left" Margin="1326,480,0,0" VerticalAlignment="Top" FontFamily="/Draci-doupe;component/Fonts/#Minecrafter Alt" Click="Accept_Click"/>
         <Label x:Name="gold" Content="Money" HorizontalAlignment="Left" FontSize="30" Margin="1580,79,0,0" VerticalAlignment="Top"/>
     </Grid>

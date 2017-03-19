@@ -9,6 +9,10 @@
         FontFamily ="./Fonts/#Minecrafter"
         Title="pointChoose" MinHeight="768" MinWidth="1366" >
     <Grid>
+        <Grid.Background >
+            <ImageBrush ImageSource="picture\skill.png" />
+        </Grid.Background>
+
         <Label x:Name="info" FontFamily="pack://application:,,,/Fonts/#Minecrafter Alt" FontSize="30" Content="Rozdeleni bodu" HorizontalAlignment="center" Margin="0,45,0,0" VerticalAlignment="Top"/>
         <Label x:Name="Level"  FontSize="15" Content="Aktualní level:" HorizontalAlignment="Center" Margin="0,100,0,0" VerticalAlignment="Top"/>
         <Label x:Name="LevelN" Content="" HorizontalAlignment="Center" Margin="160,100,0,0" VerticalAlignment="Top"/>
@@ -25,7 +29,7 @@
         <Label x:Name="MiningL" Content="0" FontSize="20" HorizontalAlignment="Center" Margin="200,320,0,0" VerticalAlignment="Top" />
         <Label x:Name="ChoppingL"  Content="0" FontSize="20" HorizontalAlignment="Center" Margin="200,360,0,0" VerticalAlignment="Top" />
         <Button x:Name="Play" FontFamily="pack://application:,,,/Fonts/#Minecrafter Alt" FontSize="30" Content="Hrat" HorizontalAlignment="Center" Margin="0,450,0,0" VerticalAlignment="Top" Width="200" Height="50" Click="Play_Click"/>
-        <Label x:Name="Info" Content="Label" HorizontalAlignment="Center" Margin="0,400,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="Info" Content="" HorizontalAlignment="Center" Margin="0,400,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
