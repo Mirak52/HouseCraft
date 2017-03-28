@@ -32,7 +32,7 @@ namespace Draci_doupe
             Skills.Money = 500;
             Database2.SaveItemAsync(Skills);*/
             InitializeComponent();
-            var itemsFromDb = Database.QueryGet().Result;
+            var itemsFromDb = App.Database.QueryGet().Result;
             foreach (var variable in itemsFromDb)
             {
                 var itemsFromDb1 = Database1.GetItemsFromDatabase(variable.Quest).Result;
@@ -84,7 +84,7 @@ namespace Draci_doupe
                }
                 if (command == 4)
                 {
-                    var itemsFromDb2 = Database.QueryGet().Result;
+                    var itemsFromDb2 = App.Database.QueryGet().Result;
                     foreach (var variable in itemsFromDb2)
                     {
                         var itemsFromDb1 = Database1.GetItemsFromDatabase(variable.Quest).Result;
@@ -116,22 +116,9 @@ namespace Draci_doupe
         }
 
 
-
-        public static OsobyDatabase _database;
         public static GossipDatabase _database1;
         public static InventoryDatabase _database2;
-        public static OsobyDatabase Database
-        {
-            get
-            {
-                if (_database == null)
-                {
-                    var fileHelper = new Filehelper();
-                    _database = new OsobyDatabase(fileHelper.GetLocalFilePath("TodoSQLite.db3"));
-                }
-                return _database;
-            }
-        }
+       
         public static GossipDatabase Database1
         {
             get
